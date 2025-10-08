@@ -14,6 +14,20 @@ The core of the Natural Language Understanding (NLU) is powered by Google's Gemi
 
 5. **Testing:** Pytest and Pytest-Mock
 
+##**High-Level Architecture**
+This diagram illustrates the flow of a request through the system.
+graph TD;
+    A[User Transcript] --> B{Bot Service /bot/handle};
+    B --> C[NLU Module];
+    C -- "Intent & Entities" --> D{Google Gemini API};
+    D -- "Structured JSON" --> C;
+    C --> B;
+    B --> E[CRM Client];
+    E --> F[Mock CRM Service];
+    F -- "Success/Error" --> E;
+    E --> B;
+    B --> G[Final JSON Response];
+
 ## **Project Structure**
 /
 ├── bot/                  # Main application package
