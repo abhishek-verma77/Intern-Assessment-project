@@ -1,7 +1,7 @@
 # **Voice-style Bot Service (Gemini Powered)**
-This project is a robust, AI-powered service that processes natural language transcripts to understand user intent, extract key information, and interact with a CRM API. It is designed to handle complex, conversational user requests for lead creation, visit scheduling, and status updates.
+This project is an LLM and NLP powered service that processes natural language transcripts to understand user intent, extract key information, and interact with a CRM API. It is designed to handle complex conversational user requests for lead creation, visit scheduling, and status updates.
 
-The core of the Natural Language Understanding (NLU) is powered by Google's Gemini Pro, making the bot flexible and capable of interpreting a wide variety of user inputs.
+The core of the NLU (Natural Language Understanding) is powered by Google's Gemini Pro, making the bot flexible and capable of interpreting a wide variety of user inputs.
 
 ## **Core Technologies**
 1. **API Framework:** FastAPI
@@ -13,12 +13,6 @@ The core of the Natural Language Understanding (NLU) is powered by Google's Gemi
 4. **HTTP Client:** HTTPX
 
 5. **Testing:** Pytest and Pytest-Mock
-
-
-
-
-
-
 
 ## **High-Level Architecture**
 This diagram illustrates the flow of a request through the system.
@@ -158,3 +152,5 @@ PowerShell Command:
 ```sh
 Invoke-WebRequest -Uri http://localhost:8000/bot/handle -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"transcript": "For lead a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890, please mark them as WON. They finally signed the contract."}'
 ```
+
+#### **NOTE : If you need my Gemini API key for testing my work please reach out to me via email.**
