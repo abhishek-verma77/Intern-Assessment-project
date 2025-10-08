@@ -104,10 +104,12 @@ curl -X POST http://localhost:8000/bot/handle \
 }'
 ```
 
+
 **PowerShell Command:**
 ```sh
 Invoke-WebRequest -Uri http://localhost:8000/bot/handle -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"transcript": "I just met a new client Priya Singh from Delhi. Her phone number is 9988776655. Can you add her to the system? She came from a Referral."}'
 ```
+
 
 **Test Case 2: Schedule a Visit (Casual Date)**
 Prerequisite: You must first create a lead to get a valid lead_id.
@@ -122,6 +124,7 @@ curl -X POST http://localhost:8000/bot/handle \
   "transcript": "Please schedule a site visit for lead a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890 for the day after tomorrow at noon."
 }'
 ```
+
 
 PowerShell Command:
 ```sh
@@ -141,6 +144,7 @@ curl -X POST http://localhost:8000/bot/handle \
   "transcript": "For lead a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890, please mark them as WON. They finally signed the contract."
 }'
 ```
+
 
 PowerShell Command:
 ```sh
