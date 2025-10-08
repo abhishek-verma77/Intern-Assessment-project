@@ -94,7 +94,7 @@ The following test cases have been verified to work with the bot. I have provide
 ### **Note on curl on Windows:** 
 Modern Windows PowerShell has an alias named curl that points to its own Invoke-WebRequest command, which uses a different syntax. The curl examples below are standard and will work on macOS, Linux, and Windows Command Prompt/Git Bash. For PowerShell users, I have provided the correct equivalent command.
 
-**Test Case 1: Create a Lead (Conversational)**
+#### **Test Case 1: Create a Lead (Conversational)**
 
 Transcript: "I just met a new client Priya Singh from Delhi. Her phone number is 9988776655. Can you add her to the system? She came from a Referral."
 
@@ -114,7 +114,7 @@ Invoke-WebRequest -Uri http://localhost:8000/bot/handle -Method POST -Headers @{
 ```
 
 
-**Test Case 2: Schedule a Visit (Casual Date)**
+#### **Test Case 2: Schedule a Visit (Casual Date)**
 Prerequisite: You must first create a lead to get a valid lead_id.
 
 Transcript: "Please schedule a site visit for lead <your-lead-id> for the day after tomorrow at noon."
@@ -134,7 +134,7 @@ PowerShell Command:
 Invoke-WebRequest -Uri http://localhost:8000/bot/handle -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"transcript": "Please schedule a site visit for lead a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890 for the day after tomorrow at noon."}'
 ```
 
-**Test Case 3: Update Lead Status (with Notes)**
+#### **Test Case 3: Update Lead Status (with Notes)**
 Prerequisite: You must have an existing lead_id.
 
 Transcript: "For lead <your-lead-id>, please mark them as WON. They finally signed the contract."
