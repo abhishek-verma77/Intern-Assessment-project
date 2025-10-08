@@ -47,19 +47,19 @@ This diagram illustrates the flow of a request through the system.
 
 ## **Setup and Installation**
 **1. Clone the Repository**
-   ```
+   ```git
    git clone <your-repo-url>
    cd <project-directory>
 ```
 
 **2. Create and Activate Conda Environment**
-```python
+``` python
 conda create --name voicebot-ai python=3.11
 conda activate voicebot-ai
 ```
 
 **3. Install Dependencies**
-  ```python
+  ``` python
   pip install -r requirements.txt
 ```
 
