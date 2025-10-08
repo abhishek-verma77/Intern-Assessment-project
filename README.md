@@ -95,6 +95,7 @@ The following test cases have been verified to work with the bot. I have provide
 Modern Windows PowerShell has an alias named curl that points to its own Invoke-WebRequest command, which uses a different syntax. The curl examples below are standard and will work on macOS, Linux, and Windows Command Prompt/Git Bash. For PowerShell users, I have provided the correct equivalent command.
 
 **Test Case 1: Create a Lead (Conversational)**
+
 Transcript: "I just met a new client Priya Singh from Delhi. Her phone number is 9988776655. Can you add her to the system? She came from a Referral."
 
 curl Command:
