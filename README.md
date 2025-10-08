@@ -1,7 +1,7 @@
 # **Voice-style Bot Service (Gemini Powered)**
 This project is an LLM and NLP powered service that processes natural language transcripts to understand user intent, extract key information, and interact with a CRM API. It is designed to handle complex conversational user requests for lead creation, visit scheduling, and status updates.
 
-The core of the NLU (Natural Language Understanding) is powered by Google's Gemini Pro, making the bot flexible and capable of interpreting a wide variety of user inputs.
+The core of the NLU (Natural Language Understanding) is powered by Google's Gemini Pro, making the bot capable of interpreting wide variety of user inputs.
 
 ## **Core Technologies**
 1. **API Framework:** FastAPI
@@ -89,10 +89,10 @@ To verify all core logic and integrations, run the automated tests from a third 
 pytest
 ```
 ## **API Usage & Verified Test Cases
-The following test cases have been verified to work with the bot. We provide examples for both the industry-standard curl command and the equivalent command for Windows PowerShell.
+The following test cases have been verified to work with the bot. I have provide examples for both the industry-standard curl command and the equivalent command for Windows PowerShell.
 
 ### **Note on curl on Windows:** 
-Modern Windows PowerShell has an alias named curl that points to its own Invoke-WebRequest command, which uses a different syntax. The curl examples below are standard and will work on macOS, Linux, and Windows Command Prompt/Git Bash. For PowerShell users, we have provided the correct equivalent command.
+Modern Windows PowerShell has an alias named curl that points to its own Invoke-WebRequest command, which uses a different syntax. The curl examples below are standard and will work on macOS, Linux, and Windows Command Prompt/Git Bash. For PowerShell users, I have provided the correct equivalent command.
 
 **Test Case 1: Create a Lead (Conversational)**
 Transcript: "I just met a new client Priya Singh from Delhi. Her phone number is 9988776655. Can you add her to the system? She came from a Referral."
@@ -108,7 +108,7 @@ curl -X POST http://localhost:8000/bot/handle \
 
 
 **PowerShell Command:**
-```sh
+```shell
 Invoke-WebRequest -Uri http://localhost:8000/bot/handle -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"transcript": "I just met a new client Priya Singh from Delhi. Her phone number is 9988776655. Can you add her to the system? She came from a Referral."}'
 ```
 
@@ -129,7 +129,7 @@ curl -X POST http://localhost:8000/bot/handle \
 
 
 PowerShell Command:
-```sh
+```shell
 Invoke-WebRequest -Uri http://localhost:8000/bot/handle -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"transcript": "Please schedule a site visit for lead a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890 for the day after tomorrow at noon."}'
 ```
 
@@ -149,7 +149,7 @@ curl -X POST http://localhost:8000/bot/handle \
 
 
 PowerShell Command:
-```sh
+```shell
 Invoke-WebRequest -Uri http://localhost:8000/bot/handle -Method POST -Headers @{"Content-Type"="application/json"} -Body '{"transcript": "For lead a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67890, please mark them as WON. They finally signed the contract."}'
 ```
 
