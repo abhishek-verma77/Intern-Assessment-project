@@ -12,8 +12,8 @@ The core of the Natural Language Understanding (NLU) is powered by Google's Gemi
 
 4. **HTTP Client:** HTTPX
 
-5. **Testing:** Pytest and Pytest-Mock <br />
-
+5. **Testing:** Pytest and Pytest-Mock 
+<br />
 ## **High-Level Architecture**
 This diagram illustrates the flow of a request through the system.
 ```mermaid
@@ -29,6 +29,7 @@ This diagram illustrates the flow of a request through the system.
     E --> B;
     B --> G[Final JSON Response];
 ```
+
 ## **Project Structure**
 ```mermaid
 graph TD;
