@@ -14,7 +14,7 @@ The core of the Natural Language Understanding (NLU) is powered by Google's Gemi
 
 5. **Testing:** Pytest and Pytest-Mock
 
-##**High-Level Architecture**
+## **High-Level Architecture**
 This diagram illustrates the flow of a request through the system.
 ```mermaid
    graph TD;
