@@ -16,7 +16,8 @@ The core of the Natural Language Understanding (NLU) is powered by Google's Gemi
 
 ##**High-Level Architecture**
 This diagram illustrates the flow of a request through the system.
-
+```mermaid
+   graph TD;
     A[User Transcript] --> B{Bot Service /bot/handle};
     B --> C[NLU Module];
     C -- "Intent & Entities" --> D{Google Gemini API};
@@ -27,8 +28,9 @@ This diagram illustrates the flow of a request through the system.
     F -- "Success/Error" --> E;
     E --> B;
     B --> G[Final JSON Response];
-
+```
 ## **Project Structure**
+
 /
 ├── bot/                  # Main application package
 │   ├── app.py            # FastAPI app and /bot/handle endpoint
