@@ -30,20 +30,21 @@ This diagram illustrates the flow of a request through the system.
     B --> G[Final JSON Response];
 ```
 ## **Project Structure**
-
-/
-├── bot/                  # Main application package
-│   ├── app.py            # FastAPI app and /bot/handle endpoint
-│   ├── nlu.py            # Gemini-powered intent/entity extraction
-│   ├── crm_client.py     # HTTP client for the mock CRM
-│   ├── models.py         # Pydantic data models
-│   └── settings.py       # Configuration management
-├── tests/                # Unit tests
-│   └── test_bot_logic.py
-├── .env                  # Environment variables (API keys, etc.)
-├── mock_crm.py           # Standalone mock CRM service
-├── requirements.txt      # Project dependencies
-└── README.md             # This file
+```mermaid
+graph TD;
+    A["/ (root)"] --> B["bot/"];
+    A --> C["tests/"];
+    A --> D[".env"];
+    A --> E["mock_crm.py"];
+    A --> F["requirements.txt"];
+    A --> G["README.md"];
+    B --> B1["app.py"];
+    B --> B2["nlu.py"];
+    B --> B3["crm_client.py"];
+    B --> B4["models.py"];
+    B --> B5["settings.py"];
+    C --> C1["test_bot_logic.py"];
+```
 
 ## **Setup and Installation**
 **1. Clone the Repository**
