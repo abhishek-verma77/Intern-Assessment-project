@@ -47,6 +47,49 @@ graph TD;
     C --> C1["test_bot_logic.py"];
 ```
 
+## **Approach to the Problem**
+My approach was to build a reliable API service that could handle natural language. The design prioritizes separation of concerns and error handling.
+
+**1. Modular Architecture**
+Instead of a single file, the application is broken down into different modules, each with a single responsibility. This makes the code easier to read, maintain, and test.
+
+**app.py (API):** Handles incoming HTTP requests and organize the flow of data between the other modules.
+
+**nlu.py :** Contains all the logic for Natural Language Understanding. Its only job is to take a transcript and return a structured intent and entities.
+
+**crm_client.py :** Manages all communication with the external CRM API. This makes it easy to swap out or test.
+
+**models.py** Uses Pydantic to define the data structures for all requests, responses, and internal objects, preventing data-related bugs.
+
+**settings.py (Configuration):** Manages all configuration and secrets, keeping them separate from the application logic.
+
+**2. AI-Powered Natural Language Understanding (NLU)**
+To meet the requirement of handling complex and conversational user queries, a LLM or (Large Language Model) (Google's Gemini Pro to be specific) was chosen.The LLM can understand varied sentence structures, synonyms, and conversational language without needing pre-defined rules for every possible phrasing.
+
+**Prompt Engineering:** The prompt in nlu.py is created to instruct the model to act as an NLU engine and to return a structured JSON object. This is an important design choice that makes the AI's output easy for the application to parse.
+
+**Structured Output:** By specifically requesting a response_mime_type of application/json from the Gemini API, we ensure a high degree of reliability in the format of the LLM's response.
+
+**3. Error Handling**
+The service is designed to be resilient and provide clear feedback. The main endpoint in app.py includes a comprehensive try-except block that handles different failure scenarios:
+
+**VALIDATION_ERROR:** If the AI understands the request but the user fails to provide required information (e.g., a phone number for a new lead).
+
+**PARSING_ERROR:** If the AI cannot determine the user's intent or if an internal error occurs.
+
+**CRM_ERROR:** If the external mock CRM service is down, slow, or returns an error (like a 404 Not Found).
+
+**4. Secure and Portable Configuration**
+All environment-specific settings and secrets (like the GOOGLE_API_KEY) are managed in a .env file and are never hardcoded in the source code. The pydantic-settings library loads this configuration, ensuring the application is both secure and easy to deploy in different environments.
+
+**5. Code Quality and Testing**
+The project includes a suite of unit tests using pytest and pytest-mock.
+
+**Isolation:** External services (the Gemini API and the CRM client) are "mocked" during tests. This allows us to test the bot's internal logic quickly and reliably without making real network calls, ensuring that tests are fast and don't depend on external factors.
+
+**Coverage:** The tests cover all three primary intents, as well as critical error conditions like missing entities and CRM failures.
+
+
 ## **Setup and Installation**
 **1. Clone the Repository**
    ```git
