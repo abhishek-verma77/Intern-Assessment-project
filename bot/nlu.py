@@ -29,9 +29,9 @@ def extract_entities_with_llm(transcript: str) -> Dict[str, Any]:
     """
 
     try:
-        # ✅ Updated Gemini model (old 'gemini-pro' was deprecated)
+        
         model = genai.GenerativeModel(
-            "gemini-2.5-pro",
+            "gemini-2.5-flash",
             generation_config={"response_mime_type": "application/json"}
         )
 
