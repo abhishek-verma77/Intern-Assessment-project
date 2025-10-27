@@ -19,7 +19,7 @@ def test_lead_create_complex_query(mocker):
     }
     mocker.patch("bot.nlu.extract_entities_with_llm", return_value=mock_llm_response)
 
-    # FIX: Create a more realistic mock response with a Request object
+    # Create a more realistic mock response with a Request object
     mock_crm_response = Response(200, json={"lead_id": "mock-uuid-123", "status": "NEW"})
     mock_crm_response.request = Request("POST", "http://mock-crm/crm/leads")
 
@@ -51,7 +51,7 @@ def test_visit_schedule_casual_date(mocker):
     }
     mocker.patch("bot.nlu.extract_entities_with_llm", return_value=mock_llm_response)
 
-    # FIX: Create a more realistic mock response with a Request object
+    #  Create a more realistic mock response with a Request object
     mock_crm_response = Response(200, json={"visit_id": "visit-uuid-456", "status": "SCHEDULED"})
     mock_crm_response.request = Request("POST", "http://mock-crm/crm/visits")
     
