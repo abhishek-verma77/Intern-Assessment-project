@@ -6,7 +6,7 @@ from typing import Dict, Any, Optional
 import google.generativeai as genai
 from .settings import settings
 
-# ✅ Configure the Google AI client with your API key
+#  Configure the Google AI client with your API key
 if settings.GOOGLE_API_KEY:
     genai.configure(api_key=settings.GOOGLE_API_KEY)
 
@@ -38,17 +38,17 @@ def extract_entities_with_llm(transcript: str) -> Dict[str, Any]:
         full_prompt = f"{system_prompt}\n\nTranscript: \"{transcript}\""
         response = model.generate_content(full_prompt)
 
-        # ✅ Ensure clean text
+        # Ensure clean text
         response_text = response.text.strip()
 
-        # ✅ Safer JSON extraction — handles if Gemini adds extra explanation
+        #  Safer JSON extraction — handles if Gemini adds extra explanation
         json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
         if not json_match:
             raise ValueError(f"Model response not JSON: {response_text}")
         
         parsed_response = json.loads(json_match.group(0))
 
-        # ✅ Post-process entities
+        #  Post-process entities
         entities = parsed_response.get("entities", {})
         if "visit_time" in entities and entities["visit_time"]:
             dt = dateparser.parse(entities["visit_time"])
